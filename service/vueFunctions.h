@@ -49,6 +49,16 @@ void interface()
    
 }
 
+// affichage de msg to do 
+
+void todo(){
+     printf("\n\n\n\n");
+    printf("\t \t \t \t \t   TTTTTT    OOO        DDDD        OOO \n");
+    printf("\t \t \t \t \t     T     O     O      D    D    O     O\n");
+    printf("\t \t \t \t \t     T     O     O      D    D    O     O\n");
+    printf("\t \t \t \t \t     T       OOO        DDDD        OOO\n");
+}
+
 
 // fonction qui affiche error 404
 
@@ -65,3 +75,13 @@ void error404(){
     printf("==================================================================================\n");    
 }
 
+void printTab(){
+	printf("\t\t\t\t\t");
+}
+
+int getInt(){
+	int n;
+	printf("\t\t\t:");
+	scanf("%d", &n);
+return n;
+}
