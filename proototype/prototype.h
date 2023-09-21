@@ -5,3 +5,5 @@ void error404();
 void todo();
 void printTab();
 int getInt();
+
+// fonction de service 

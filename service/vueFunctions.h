@@ -79,6 +79,7 @@ void printTab(){
 	printf("\t\t\t\t\t");
 }
 
+
 int getInt(){
 	int n;
 	printf("\t\t\t:");

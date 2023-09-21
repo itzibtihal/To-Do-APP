@@ -1,3 +1,4 @@
+
 // date structure 
 typedef struct date{
  	int jour;
@@ -8,10 +9,14 @@ typedef struct date{
 
 
 // les valeurs possible de status 
-typedef enum Status Status;
+
+/*
 enum Statuts {
-    Aréaliser = 1 ,EncoursDeRéalisation = 2 , Finalisée = 3;
-};
+    Arealiser = 1 ,
+    EncoursDeRealisation = 2 , 
+    Finalisee = 3
+};*/
+
 
 
 
@@ -20,8 +25,12 @@ typedef struct toDo
 {
     int id ;
     char titre [50];
-    char description[]={};
+    char description[400];
     struct date deadline ;
-    enum Status Status;
+    // enum Status status;
+    char  Status[60];
 }toDo;
  
+
+toDo Task[300];
+

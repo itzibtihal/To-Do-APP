@@ -13,6 +13,7 @@
 //bibliothèque permet d'utiliser le type de données booléen 
 #include <stdbool.h>
 
+#include <ctype.h>
 
 // importe la déclaration des fonctions
 #include "proototype/prototype.h"
@@ -23,9 +24,15 @@
 // importe des fonctions de service
 #include "service/serviceFunctions.h"
 
+  // variable
 
+   int id = 0;
+   int i = 0 ;
 
 int main (){
+   
+
+  
 
          Sas();
          interface();
@@ -38,7 +45,7 @@ int main (){
 		again :
 		printTab();printf("==========================================              ===========================================\n");
         printTab();printf("==========================================   M E N U    ===========================================\n");
-        printTab();printf("==========================================              ======================\n \n \n");
+        printTab();printf("==========================================              ===========================================\n \n \n");
 		do {
 			printTab();printf("1  Ajouter une nouvelle tâche\n\n");
 			printTab();printf("2  Ajouter plusieurs nouvelles tâches\n\n");
@@ -58,9 +65,10 @@ int main (){
             break;
             case 1 :
               // fonction d'ajout d 'une taches
+               AjouterTache();
             break;
             case 2 :
-              // fonction d' ajour de plusieurs taches
+              // fonction d' ajout de plusieurs taches
             break;
             case 3 :
                /* Trier les tâches par ordre alphabétique.
