@@ -64,11 +64,12 @@ int main (){
                   exit(0);;
             break;
             case 1 :
-              // fonction d'ajout d 'une taches
-               AjouterTache();
+                      // fonction d'ajout d 'une taches
+                       AjouterTache();
             break;
             case 2 :
-              // fonction d' ajout de plusieurs taches
+                      // fonction d' ajout de plusieurs taches
+                      AjouterDesTaches()
             break;
             case 3 :
                /* Trier les tâches par ordre alphabétique.

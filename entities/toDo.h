@@ -28,7 +28,7 @@ typedef struct toDo
     char description[400];
     struct date deadline ;
     // enum Status status;
-    char  Status[60];
+    int  Status;
 }toDo;
  
 
