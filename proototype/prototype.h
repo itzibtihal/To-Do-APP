@@ -8,8 +8,8 @@ int getInt();
 
 // fonction de service
        // fonctions d'ajout 
-void AjouterTache();
-void AjouterDesTaches();
+void AjouterTache(int *i, int *id, int *n)
+void AjouterDesTaches(int *i, int *id, int *n)
        //fonctions pour lister
 void ListAll();
 void ListByCloseDeadline();

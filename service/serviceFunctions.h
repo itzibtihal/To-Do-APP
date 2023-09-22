@@ -45,7 +45,7 @@ void AjouterTache(int *i, int *id, int *n) {
         //ajouter une tâche individuelle
         AjouterTache(i, id, n);
 
-        printTab();printf("Tâche #%d ajoutee avec succes!\n", j + 1);
+        printTab();printf("Tache #%d ajoutee avec succes!\n", j + 1);
         
     }
 }
@@ -59,7 +59,12 @@ void AjouterTache(int *i, int *id, int *n) {
 
 
 void ListAll(){
-     printf("Liste de toutes les taches enregistrees :\n");
+    if (i == 0) {
+        printf("Aucune tâche enregistrée pour le moment.\n");
+        return;
+    }
+
+    printf("Liste de toutes les tâches enregistrées :\n");
     for (int j = 0; j < i; j++) {
         printf("ID : %d\n", Task[j].id);
         printf("Titre : %s\n", Task[j].titre);
@@ -81,7 +86,6 @@ void ListAll(){
         }
         printf("\n");
     }
-    
 }
  
 
