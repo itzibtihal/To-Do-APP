@@ -44,11 +44,11 @@ int main (){
 
     int input;
 	while(1){
-		again :
-		printf("\n\n\n\n");
-		printf("\t\t==========================================                    ===========================================\n");
-        printf("\t\t==========================================      M E N U       ===========================================\n");
-        printf("\t\t==========================================                    ===========================================\n \n \n");
+		    again :
+		    printf("\n\n\n\n");
+		    printf("\t\t==========================================                    ===========================================\n");
+          printf("\t\t==========================================      M E N U       ===========================================\n");
+          printf("\t\t==========================================                    ===========================================\n \n \n");
 		do {
 			printTab();printf("1  Ajouter une nouvelle tache\n\n");
 			printTab();printf("2  Ajouter plusieurs nouvelles taches\n\n");
@@ -63,22 +63,12 @@ int main (){
 
             switch (input)
             {
-            case 0 :
-                  exit(0);;
-            break;
-            case 1 :
-                      // fonction d'ajout d 'une taches
-                       AjouterTache();
-            break;
-            case 2 :
-                      // fonction d' ajout de plusieurs taches
-                      AjouterDesTaches();
-            break;
+            case 0 : exit(0);break;
+            case 1 : AjouterTache();break;
+            case 2 : AjouterDesTaches();break;
             case 3 :
                /* Trier les tâches par ordre alphabétique.
-
                 Trier les tâches par deadline.
-
                 Afficher les tâches dont le deadline est dans 3 jours ou moins.*/
                while (1)
                {
@@ -95,22 +85,18 @@ int main (){
                  
                       switch (choix)
                       {
-                      case 1:
-                        // fonction  lister toutes les tâches par ordre alphabétique
-                        break;
-                      case 2 :
+                      case 1:break;
+                       
                          // fonction  lister toutes les tâches  par deadline
-                         break;
-                       case 3 :
-                         // fonction  lister toutes les tâches  dont le deadline est dans 3 jours ou moins 
-                          ListByCloseDeadline();
-                         break;
+                      case 2 :break;
+                        
+                          // fonction  lister toutes les tâches  dont le deadline est dans 3 jours ou moins 
+                       case 3 : ListByCloseDeadline();  break;
+                    
                         case 0 : break;
-                      
+                     } 
                         if(!choix) break;
-                      }
-                    break;
-               }
+               } break;
 
             case 4 :
                 /*
@@ -135,32 +121,19 @@ int main (){
                  
                       switch (choix)
                       {
-                      case 1:
                         // fonction  pour Modifier la description d'une tache
-                             updateDescription();
-
-                        break;
-                      case 2 :
+                      case 1:updateDescription();break;
                          // fonction pour Modifier le statut d’une tache
-                             updateStatus();
-                         break;
-                       case 3 :
-                         // fonction pour Modifier le deadline d’une tache
-                          updateDeadline();
-                         break;
-                        case 0 : break;
-                      
+                      case 2 : updateStatus(); break;    
+                          // fonction pour Modifier le deadline d’une tache
+                      case 3 : updateDeadline(); break;
+                      case 0 : break;
+                       }
                         if(!choix) break;
-                      }
-                    break;
                } 
             break;   
-
-            case 5:
-                 // fonction de suppression par id
-                  void deleteById();
-            break;
-
+                    // fonction de suppression par id
+            case 5: deleteById();break;
             case 6:
                    while (1)
                {
@@ -174,22 +147,12 @@ int main (){
                   choix = getInt();
                  } while (choix > 2 || choix < 0);
                  switch (choix)
-                 {
-                 case 1:
-                    // FONCTION DE recherche by id
-                    getById();
-                    break;
-
-                case 2:
-                    // fonction de recherche par titre
-                     rechercherTacheParTitre();
-                    break;
-                    
-                 default:
-                    break;
-                 }
-                 
-                 
+                 {// FONCTION DE recherche by id
+                 case 1:getById();break;
+                   // fonction de recherche par titre
+                case 2:rechercherTacheParTitre(); break;
+                case 0: break;
+                 }if(!choix) break;
                  }
             break;
 
@@ -208,31 +171,21 @@ int main (){
                  } while (choix > 2 || choix < 0);
                  switch (choix)
                  {
-                 case 1:
-                    getNtache();
-                    break;
-                 case 2:
-                    getCompletedandIncompletedTasks();
-                    break;
-                 case 3:
-                    
-                    break;       
+                 case 1:getNtache(); break;
+                 case 2: getCompletedandIncompletedTasks();break; 
+                 case 3:break; 
+                 case 0:break;
                  
-                 default:
-                    break;
-                 }
-               }
+                 }if(!choix) break;
+               } break;
                
-            break;
+           
             
-            default:
-                break;
+            default: error404();
+                 goto again;
             }
 			
 		}while(input > 7 || input < 0);
 	}	
-         
-
-
-
+         return 0 ;
 }
