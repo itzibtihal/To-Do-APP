@@ -1,48 +1,55 @@
 // ajouter une tache
 
-
-void AjouterTache() {
-    Task[i].id = id++;
+void AjouterTache(int *i, int *id, int *n) {
+    Task[*i].id = (*id)++;
     printTab();
     printf("Entrer le titre de votre tache :\n\n ");
     printTab();
-    scanf(" %[^\n]", Task[i].titre);
+    scanf(" %[^\n]", Task[*i].titre);
     printTab();
     printf("Entrer une Description :\n\n ");
     printTab();
-    scanf(" %[^\n]", Task[i].description);
+    scanf(" %[^\n]", Task[*i].description);
     printTab();
     printf("Entrez un Deadline (jour / mois / annee) :\n\n");
     printTab();
-    scanf("%d / %d / %d", &Task[i].deadline.jour, &Task[i].deadline.mois, &Task[i].deadline.annee);
+    scanf("%d / %d / %d", &Task[*i].deadline.jour, &Task[*i].deadline.mois, &Task[*i].deadline.annee);
 
     printTab();
     printf("Status :\n");
     do {
-            printTab();printf("1  a realiser\n");
-            printTab();printf("2  en cours de realisation\n");
-            printTab();printf("3  finalisee\n");
-            printTab();printf("Merci de modifier votre status : \n\n"); 
-            printTab();
-            scanf("%d",Task[i].Status);
-       } while (Task[i].Status < 1 || Task[i].Status > 3); 
-    i++;
-    n++;
+        printTab();
+        printf("1  a realiser\n");
+        printTab();
+        printf("2  en cours de realisation\n");
+        printTab();
+        printf("3  finalisee\n");
+        printTab();
+        printf("Merci de modifier votre status : \n\n");
+        printTab();
+        scanf("%d", &Task[*i].Status);
+    } while (Task[*i].Status < 1 || Task[*i].Status > 3);
+    (*i)++;
+    (*n)++;
 }
-
 
 
 // ajouter des taches
-
-void AjouterDesTaches() {
+  void AjouterDesTaches(int *i, int *id, int *n) {
     int nombreDeTaches;
-    printf("Combien de taches souhaitez-vous ajouter ? ");
-    scanf("%d", &nombreDeTaches);
+    printTab();printf("Combien de taches souhaitez-vous ajouter ? : ");
+    printTab();scanf("%d", &nombreDeTaches);
 
     for (int j = 0; j < nombreDeTaches; j++) {
-        AjouterTache();
+        printTab();printf("Tache # %d\n", j + 1);
+        //ajouter une tâche individuelle
+        AjouterTache(i, id, n);
+
+        printTab();printf("Tâche #%d ajoutee avec succes!\n", j + 1);
+        
     }
 }
+
 
 
 

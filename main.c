@@ -37,7 +37,6 @@ int main (){
   
 
          Sas();
-         interface();
          todo();
 
           //Menu de l'applicationvoid
