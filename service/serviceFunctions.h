@@ -19,8 +19,8 @@ void AjouterTache() {
     printTab();
     printf("Status :\n");
     do {
-            printTab();printf("1  à réaliser\n");
-            printTab();printf("2  en cours de réalisation\n");
+            printTab();printf("1  a realiser\n");
+            printTab();printf("2  en cours de realisation\n");
             printTab();printf("3  finalisee\n");
             printTab();printf("Merci de modifier votre status : \n\n"); 
             printTab();
@@ -36,7 +36,7 @@ void AjouterTache() {
 
 void AjouterDesTaches() {
     int nombreDeTaches;
-    printf("Combien de tâches souhaitez-vous ajouter ? ");
+    printf("Combien de taches souhaitez-vous ajouter ? ");
     scanf("%d", &nombreDeTaches);
 
     for (int j = 0; j < nombreDeTaches; j++) {
@@ -52,7 +52,7 @@ void AjouterDesTaches() {
 
 
 void ListAll(){
-     printf("Liste de toutes les tâches enregistrées :\n");
+     printf("Liste de toutes les taches enregistrees :\n");
     for (int j = 0; j < i; j++) {
         printf("ID : %d\n", Task[j].id);
         printf("Titre : %s\n", Task[j].titre);
@@ -61,13 +61,13 @@ void ListAll(){
         printf("Statut : ");
         switch (Task[j].Status) {
             case 1:
-                printf("À réaliser\n");
+                printf("A realiser\n");
                 break;
             case 2:
-                printf("En cours de réalisation\n");
+                printf("En cours de realisation\n");
                 break;
             case 3:
-                printf("Finalisée\n");
+                printf("Finalisee\n");
                 break;
             default:
                 printf("Statut inconnu\n");
@@ -156,17 +156,17 @@ void ListByLetters(){
             printTab();printf("Tâches dont le délai est de 3 jours ou moins :\n \n");
             printTab();printf("Titre : %s \n: " , Task[j].titre);
             printTab(); printf("Description : %s\n", Task[j].description);
-            printTab();printf("Deadline : %d-%d-%d\n", Task[j].deadline.jour, Task[j].deadline.mois, Task[j].deadline.annee);
+            printTab();printf("Deadline : %d / %d / %d \n", Task[j].deadline.jour, Task[j].deadline.mois, Task[j].deadline.annee);
             printTab(); printf("Statut : ");
         switch (Task[j].Status) {
             case 1:
-                printf("À réaliser\n");
+                printf("A realiser\n");
                 break;
             case 2:
-                printf("En cours de réalisation\n");
+                printf("En cours de realisation\n");
                 break;
             case 3:
-                printf("Finalisée\n");
+                printf("Finalisee\n");
                 break;
             default:
                 printf("Statut inconnu\n");
@@ -208,11 +208,11 @@ void ListByLetters(){
          bool result;
 
         do {
-           printTab();printf("Entrer l'identifiant de la tâche que vous voulez modifier :\n");
+           printTab();printf("Entrer l'identifiant de la tache que vous voulez modifier :\n");
            printTab();scanf("%d", &identi);
            result = idExiste(identi);
            if (!result) {
-              printTab();printf("L'identifiant %d n'existe pas dans le tableau. Veuillez réessayer.\n", identi);
+              printTab();printf("L'identifiant %d n'existe pas dans le tableau. Veuillez reessayer.\n", identi);
            }
        } while (!result);
 
@@ -233,11 +233,11 @@ void ListByLetters(){
          bool result;
 
         do {
-           printTab();printf("Entrer l'identifiant de la tâche que vous voulez modifier :\n");
+           printTab();printf("Entrer l'identifiant de la tache que vous voulez modifier :\n");
            printTab();scanf("%d", &identi);
            result = idExiste(identi);
            if (!result) {
-              printTab();printf("L'identifiant %d n'existe pas dans le tableau. Veuillez réessayer.\n", identi);
+              printTab();printf("L'identifiant %d n'existe pas dans le tableau. Veuillez réessayer! \n", identi);
            }
        } while (!result);
 
@@ -246,8 +246,8 @@ void ListByLetters(){
              printTab();
              printf(" rappelons que les choix de status sont  :\n");
         do {
-            printTab();printf("1  à réaliser\n");
-            printTab();printf("2  en cours de réalisation\n");
+            printTab();printf("1  A realiser\n");
+            printTab();printf("2  en cours de realisation\n");
             printTab();printf("3  finalisee\n");
             printTab();printf("Merci de modifier votre status : \n\n"); 
             printTab();
@@ -269,11 +269,11 @@ void ListByLetters(){
          bool result;
 
         do {
-           printTab();printf("Entrer l'identifiant de la tâche que vous voulez modifier :\n");
+           printTab();printf("Entrer l'identifiant de la tache que vous voulez modifier :\n");
            printTab();scanf("%d", &identi);
            result = idExiste(identi);
            if (!result) {
-              printTab();printf("L'identifiant %d n'existe pas dans le tableau. Veuillez réessayer.\n", identi);
+              printTab();printf("L'identifiant %d n'existe pas dans le tableau. Veuillez reessayer.\n", identi);
            }
        } while (!result);
 
@@ -299,11 +299,11 @@ void ListByLetters(){
          bool result;
 
         do {
-           printTab();printf("Entrer l'identifiant de la tâche que vous voulez suprimer :\n");
+           printTab();printf("Entrer l'identifiant de la tache que vous voulez suprimer :\n");
            printTab();scanf("%d", &identi);
            result = idExiste(identi);
            if (!result) {
-              printTab();printf("L'identifiant %d n'existe pas dans le tableau. Veuillez réessayer.\n", identi);
+              printTab();printf("L'identifiant %d n'existe pas dans le tableau. Veuillez reessayer.\n", identi);
            }
        } while (!result);
 
@@ -332,11 +332,11 @@ void getById(){
          bool result;
 
     do {
-           printTab();printf("Entrer l'identifiant de la tâche que vous voulez modifier :\n");
+           printTab();printf("Entrer l'identifiant de la tache que vous voulez modifier :\n");
            printTab();scanf("%d", &identi);
            result = idExiste(identi);
            if (!result) {
-              printTab();printf("L'identifiant %d n'existe pas dans le tableau. Veuillez réessayer.\n", identi);
+              printTab();printf("L'identifiant %d n'existe pas dans le tableau. Veuillez reessayer.\n", identi);
            }
        } while (!result);
 
@@ -347,13 +347,13 @@ void getById(){
          printTab();printf("Statut : ");
         switch (Task[identi].Status) {
             case 1:
-                printf("À réaliser\n");
+                printf("A realiser\n");
                 break;
             case 2:
-                printf("En cours de réalisation\n");
+                printf("En cours de realisation\n");
                 break;
             case 3:
-                printf("Finalisée\n");
+                printf("Finalisee\n");
                 break;
             default:
                 printf("Statut inconnu\n");
@@ -372,7 +372,7 @@ void getById(){
 void rechercherTacheParTitre() {
 
     char titreRecherche[50]; 
-    printf("Entrez le titre de la tâche que vous recherchez : ");
+    printf("Entrez le titre de la tache que vous recherchez : ");
     scanf(" %[^\n]", titreRecherche);
 
     bool trouve = false;
@@ -380,25 +380,25 @@ void rechercherTacheParTitre() {
     for (int j = 0; j < i; j++) {
         if (strcmp(Task[j].titre, titreRecherche) == 0) {
             // Titre trouve ==> affichage des détails de la tâche
-            printf("Tache trouvee :\n");
-            printf("ID : %d\n", Task[j].id);
-            printf("Titre : %s\n", Task[j].titre);
-            printf("Description : %s\n", Task[j].description);
-            printf("Deadline : %d / %d / %d\n", Task[j].deadline.jour, Task[j].deadline.mois, Task[j].deadline.annee);
-            printf("Statut : ");
+            printTab();printf("Tache trouvee :\n");
+            printTab();printf("ID : %d\n", Task[j].id);
+            printTab();printf("Titre : %s\n", Task[j].titre);
+            printTab();printf("Description : %s\n", Task[j].description);
+            printTab();printf("Deadline : %d / %d / %d\n", Task[j].deadline.jour, Task[j].deadline.mois, Task[j].deadline.annee);
+            printTab();printf("Statut : ");
 
             switch (Task[j].Status) {
                 case 1:
-                    printf("A realiser\n");
+                    printTab();printf("A realiser\n");
                     break;
                 case 2:
-                    printf("En cours de realisation\n");
+                    printTab();printf("En cours de realisation\n");
                     break;
                 case 3:
-                    printf("Finalisee\n");
+                    printTab();printf("Finalisee\n");
                     break;
                 default:
-                    printf("Statut inconnu\n");
+                    printTab();printf("Statut inconnu\n");
             }
             printf("\n");
 
@@ -407,7 +407,7 @@ void rechercherTacheParTitre() {
     }
 
     if (!trouve) {
-        printf("Aucune tache trouvee avec le titre \"%s\".\n", titreRecherche);
+        printTab();printf("Aucune tache trouvee avec le titre \"%s\".\n", titreRecherche);
     }
 }
 
@@ -419,10 +419,32 @@ void rechercherTacheParTitre() {
 
       // statistique
 // afficher nombre des tache
+void getNtache(){
+    int cmpt = 0 ;
+    printTab();printf("le nombre totale des taches est : \n");
+    if (Task[i].status==1 || Task[i].status==2 || Task[i].status==3)
+    {
+        cmpt++ ;
+    }
+    printTab();printf("%d",cmpt);
+}
+
+
 // afficher les taches completes et incomplete 
+void getCompletedandIncompletedTasks(){
+    int count1=0;
+    int count2=0;
+    for(i=0;i<n;i++){
+        if(Task[i].status==1 || Task[i].status==2) count1++;
+        if(Task[i].status==3) count2++;
+    }
+    printTab();printf("le nombre des taches    completes : %d \n ", count2);
+    printTab();printf(" incompletes : %d \n", count1);
+
+}
 // afficher le nombre de jour restant jusqu'au délai
 
 
 
-*/
+
 

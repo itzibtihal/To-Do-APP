@@ -25,3 +25,6 @@ void deleteById();
 void getById();
 void rechercherTacheParTitre();
        // fonctions de statistique 
+void getNtache();
+void getCompletedandIncompletedTasks();
+void getDaysToDeadline(); 
