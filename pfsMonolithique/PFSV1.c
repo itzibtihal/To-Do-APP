@@ -134,24 +134,28 @@ void todo(){
 }
 
 
-// fonction qui affiche error 404
-
-void error404(){
-    printf("==================================================================================\n");
-    printf("\n");
-  	printf("  ______                                  _  _      ___    _  _   \n");
-	printf(" |  ____|                                | || |    / _ \\  | || |  \n");
-	printf(" | |__     _ __   _ __    ___    _ __    | || |_  | | | | | || |_ \n");
-	printf(" |  __|   | '__| | '__|  / _ \\  | '__|   |__   _| | | | | |__   _|\n");
-	printf(" | |____  | |    | |    | (_) | | |         | |   | |_| |    | |  \n");
-	printf(" |______| |_|    |_|     \\___/  |_|         |_|    \\___/     |_|  \n");
-    printf("\n");
-    printf("==================================================================================\n");
-}
-
 void printTab(){
 	printf("\t\t\t\t\t");
 }
+
+
+// fonction qui affiche error 404
+
+void error404(){
+    printf("\n\n\n");
+   printf("==========================================================================================================================================================================\n");
+    printTab();printf("\n\n");
+  	printTab();printf("  ______                                  _  _      ___    _  _   \n");
+	printTab();printf(" |  ____|                                | || |    / _ \\  | || |  \n");
+	printTab();printf(" | |__     _ __   _ __    ___    _ __    | || |_  | | | | | || |_ \n");
+	printTab();printf(" |  __|   | '__| | '__|  / _ \\  | '__|   |__   _| | | | | |__   _|\n");
+	printTab();printf(" | |____  | |    | |    | (_) | | |         | |   | |_| |    | |  \n");
+	printTab();printf(" |______| |_|    |_|     \\___/  |_|         |_|    \\___/     |_|  \n");
+    printTab();printf("\n\n");
+    printf("=========================================================================================================================================================================\n");
+}
+
+
 
 
 int getInt(){
@@ -258,31 +262,24 @@ void triOrdreAlpha(int *i, int *n) {
 
 
 void ListByDeadline(int *i, int *n) {
-    printTab(); printf("La liste des taches par deadline : \n\n");
+    printTab();printf("La liste des taches par deadline : \n\n");
     toDo T;
 
-    for (*i = 0; *i < *n - 1; (*i)++) {
-             int result1 = (Task[*i].deadline.annee * 365) + (Task[*i].deadline.mois * 30) + (Task[*i].deadline.jour);
+    for (*i = 0; *i < (*n) - 1; (*i)++) {
+        int result1 = (Task[*i].deadline.annee * 365) + (Task[*i].deadline.mois * 30) + (Task[*i].deadline.jour);
         for (int j = *i + 1; j < *n; j++) {
-            
-              int result2 = (Task[j + 1].deadline.annee * 365) + (Task[j + 1].deadline.mois * 30) + (Task[j + 1].deadline.jour);
+            int result2 = (Task[j].deadline.annee * 365) + (Task[j].deadline.mois * 30) + (Task[j].deadline.jour);
 
             if (result1 > result2) {
-                T = Task[j];
-                Task[j] = Task[j + 1];
-                Task[j + 1] = T;
+                T = Task[*i];
+                Task[*i] = Task[j];
+                Task[j] = T;
+                result1 = result2; 
             }
         }
     }
     ListAll(n);
 }
-
-
-
-
-
-
-
 
 
 
@@ -636,6 +633,7 @@ int main() {
     int input;
 
     while (1) {
+        again :
         do {
             printf("\n\n\n\n");
 		printf("\t\t==========================================                    ===========================================\n");
@@ -651,7 +649,7 @@ int main() {
 
 			printTab();printf("0  Quiter\n\n");
             input = getInt();
-        } while (input > 7 || input < 0);
+        
         switch (input) {
 
 
@@ -701,8 +699,9 @@ int main() {
                       break;
 
                          // fonction  lister toutes les tâches  par deadline
-                      case 2 : break;
+                      case 2 :
                                  ListByDeadline(&i,&n);
+                                  break;
                           // fonction  lister toutes les tâches  dont le deadline est dans 3 jours ou moins
                        case 3 : ListByCloseDeadline(&i); break;
 
@@ -737,7 +736,7 @@ int main() {
                       {
                         // fonction  pour Modifier la description d'une tache
                       case 1: updateDescription(&i);
-                      ;break;
+                      break;
                          // fonction pour Modifier le statut d’une tache
                       case 2 : updateStatus(&i) ;
                       break;
@@ -785,23 +784,27 @@ int main() {
                   printTab();printf("3  Afficher le nombre de jours restants jusqu'au delai de chaque tache.\n\n");
                   printTab();printf("0  Menu \n\n");
                   choix = getInt();
-                 } while (choix > 2 || choix < 0);
+                 } while (choix > 3 || choix < 0);
                  switch (choix)
                  {
                  case 1:getNtache(&i); break;
                  case 2: getCompletedandIncompletedTasks(&i);break;
-                 case 3: afficherJoursRestants(&i);  break;
+                 case 3:  afficherJoursRestants(&i);  break;
                  case 0:break;
 
                  }if(!choix) break;
-               } break;
+               } 
+            break;
 
 
 
             default:
                  error404();
-                break;
-        }
+
+                 goto again ;
+               
+            }
+        } while (input > 7 || input < 0);
     }
 
     return 0;
