@@ -261,9 +261,9 @@ void ListByDeadline(int *i, int *n) {
     printTab(); printf("La liste des taches par deadline : \n\n");
     toDo T;
 
-    for (int i = 0; i < *n - 1; i++) {
-             int result1 = (Task[i].deadline.annee * 365) + (Task[i].deadline.mois * 30) + (Task[i].deadline.jour);
-        for (int j = 0; j < *n - i - 1; j++) {
+    for (*i = 0; *i < *n - 1; (*i)++) {
+             int result1 = (Task[*i].deadline.annee * 365) + (Task[*i].deadline.mois * 30) + (Task[*i].deadline.jour);
+        for (int j = *i + 1; j < *n; j++) {
             
               int result2 = (Task[j + 1].deadline.annee * 365) + (Task[j + 1].deadline.mois * 30) + (Task[j + 1].deadline.jour);
 
