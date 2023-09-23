@@ -13,7 +13,7 @@
 //bibliothèque permet d'utiliser le type de données booléen
 #include <stdbool.h>
 
-//bibliothèque permet d'effectuer des opérations sur les caractères 
+//bibliothèque permet d'effectuer des opérations sur les caractères
 #include <ctype.h>
 
 
@@ -234,9 +234,28 @@ void ListAll(int *i){
     }
 }
 
+
+
+
+
+
+
+
+
+
 //=========================== list par ordre alpha =============
 
 //========================== list by deadline =================
+
+
+
+
+
+
+
+
+
+
 
 
 // ==================  list close ones ======================
@@ -258,7 +277,7 @@ void ListAll(int *i){
 
     for (int j = 0; j < *i; j++) {
         int joursRestants = (Task[j].deadline.annee - anNow) * 365 +(Task[j].deadline.mois - moisNow) * 30 +(Task[j].deadline.jour - dayNow);
-        if (joursRestants < 4  )
+        if (joursRestants < 4 && joursRestants >=  0)
         {
             // affichage des jours < = 3
             printTab();printf("Taches dont le delai est de 3 jours ou moins :\n \n");
@@ -570,7 +589,7 @@ void afficherJoursRestants(int *i) {
 }
 // ====================================== declarer les variable global =========
 
-int id = 0;
+   int id = 0;
    int i = 0 ;
    // nombre des taches
    int n = 0;
@@ -652,7 +671,7 @@ int main() {
                       case 1:break;
 
                          // fonction  lister toutes les tâches  par deadline
-                      case 2 :break;
+                      case 2 : break;
 
                           // fonction  lister toutes les tâches  dont le deadline est dans 3 jours ou moins
                        case 3 : ListByCloseDeadline(&i); break;
