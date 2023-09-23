@@ -234,19 +234,10 @@ void ListAll(int *i){
     }
 }
 
-
-
-
-
-
-
-
-
-
 //=========================== list par ordre alpha =============
 
 void triOrdreAlpha(int *i, int *n) {
-    printf("La liste des taches par ordre alphabetique :\n");
+   printTab();printf("La liste des taches par ordre alphabetique :\n");
     toDo c;
     
     for (*i = 0; *i < *n - 1; (*i)++) {
@@ -266,6 +257,25 @@ void triOrdreAlpha(int *i, int *n) {
 //========================== list by deadline =================
 
 
+void ListByDeadline(int *i, int *n) {
+    printTab(); printf("La liste des taches par deadline : \n\n");
+    toDo T;
+
+    for (int i = 0; i < *n - 1; i++) {
+             int result1 = (Task[i].deadline.annee * 365) + (Task[i].deadline.mois * 30) + (Task[i].deadline.jour);
+        for (int j = 0; j < *n - i - 1; j++) {
+            
+              int result2 = (Task[j + 1].deadline.annee * 365) + (Task[j + 1].deadline.mois * 30) + (Task[j + 1].deadline.jour);
+
+            if (result1 > result2) {
+                T = Task[j];
+                Task[j] = Task[j + 1];
+                Task[j + 1] = T;
+            }
+        }
+    }
+    ListAll(n);
+}
 
 
 
@@ -692,7 +702,7 @@ int main() {
 
                          // fonction  lister toutes les tâches  par deadline
                       case 2 : break;
-
+                                 ListByDeadline(&i,&n);
                           // fonction  lister toutes les tâches  dont le deadline est dans 3 jours ou moins
                        case 3 : ListByCloseDeadline(&i); break;
 
