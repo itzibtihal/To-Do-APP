@@ -245,6 +245,24 @@ void ListAll(int *i){
 
 //=========================== list par ordre alpha =============
 
+void triOrdreAlpha(int *i, int *n) {
+    printf("La liste des taches par ordre alphabetique :\n");
+    toDo c;
+    
+    for (*i = 0; *i < *n - 1; (*i)++) {
+        for (int j = *i + 1; j < *n; j++) {
+            int result = strcmp(Task[*i].titre, Task[j].titre);
+            if (result > 0) {
+                c = Task[*i];
+                Task[*i] = Task[j];
+                Task[j] = c;
+            }
+        }
+    }
+    
+    ListAll(n);
+}
+
 //========================== list by deadline =================
 
 
@@ -668,7 +686,9 @@ int main() {
 
                       switch (choix)
                       {
-                      case 1:break;
+                      case 1:
+                         triOrdreAlpha(&i,&n);
+                      break;
 
                          // fonction  lister toutes les tâches  par deadline
                       case 2 : break;
