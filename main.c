@@ -13,6 +13,7 @@
 //bibliothèque permet d'utiliser le type de données booléen 
 #include <stdbool.h>
 
+//bibliothèque permet d'effectuer des opérations sur les caractères
 #include <ctype.h>
 
 // importe la déclaration des fonctions

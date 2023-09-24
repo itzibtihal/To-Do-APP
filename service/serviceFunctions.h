@@ -125,10 +125,10 @@ void ListByDeadline(int *i, int *n) {
         // Renvoie l'heure actuelle
         time(&now);
        // Convertir au format  locale
-        struct tm *local = localtime(&now);
-        dayNow = local->tm_mday;
-        moisNow = local->tm_mon + 1;
-        anNow = local->tm_year + 1900;
+        struct tm local = *localtime(&now);
+        dayNow = local.tm_mday;
+        moisNow = local.tm_mon + 1;
+        anNow = local.tm_year + 1900;
 
         // comparer la date acctuelle avec la date saisi par lutilisateur
 
@@ -423,11 +423,12 @@ void getNtache(int *i) {
 
 void afficherJoursRestants(int *i) {
     time_t now;
-    struct tm *local;
+    struct tm local;
     int joursRestants;
 
+
     time(&now);
-    local = localtime(&now);
+    local = *localtime(&now);
 
     printTab();printf("Jours restants jusqu'au delai pour chaque tache :\n");
 
@@ -436,9 +437,9 @@ void afficherJoursRestants(int *i) {
         joursRestants = 0;
 
         // Calculer les jours restants en comparant la date limite avec la date actuelle
-        joursRestants += (Task[j].deadline.annee - (local->tm_year + 1900)) * 365;
-        joursRestants += (Task[j].deadline.mois - (local->tm_mon + 1)) * 30;
-        joursRestants += (Task[j].deadline.jour - local->tm_mday);
+        joursRestants += (Task[j].deadline.annee - (local.tm_year + 1900)) * 365;
+        joursRestants += (Task[j].deadline.mois - (local.tm_mon + 1)) * 30;
+        joursRestants += (Task[j].deadline.jour - local.tm_mday);
 
         printTab();
         printf("Tache n : %d - %s : %d jours\n", Task[j].id, Task[j].titre, joursRestants);
